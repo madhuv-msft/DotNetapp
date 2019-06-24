@@ -8,6 +8,9 @@ variables:
   AzureEndPointConnection: 'DotNetWebappSPN'
   AzureResourceGroupName: 'ch-environment-test1-rg'
   AzureWebAppName: 'ch-environment-test1'
+  EnvironmentPreName: 'ProdEnvironment'
+  EnvironmentNamePostFix: 'DotNetApp'
+  EnvironmentK8Resource: 'default'
 
 stages:
 - stage: 'Build'
@@ -53,7 +56,7 @@ stages:
   dependsOn: Build
   jobs:
   - deployment: 'DeploymentJob'
-    environment: ProdEnvironment-DotNetApp
+    environment: $(EnvironmentPreName)-$(EnvironmentNamePostFix).$(EnvironmentK8Resource)
     pool:
       name: Hosted VS2017
     strategy:
@@ -79,3 +82,10 @@ stages:
               TakeAppOfflineFlag: true
               UseWebDeploy: true
               RenameFilesFlag: true
+          - task: Kubernetes@1
+            displayName: 'kubectl get'
+            inputs:
+              connectionType: 'Kubernetes Service Connection'              
+              namespace: 'default'
+              command: get
+              arguments: pods
