@@ -5,7 +5,7 @@ variables:
   BuildConfiguration: 'release'
   BuildPlatform: 'any cpu'
   Solution: '**\*.sln'  
-  AzureEndPointConnection: 'DotNetWebApp'
+  AzureEndPointConnection: 'DotNetWebappSPN'
   AzureResourceGroupName: 'ch-environment-test1-rg'
   AzureWebAppName: 'ch-environment-test1'
 
