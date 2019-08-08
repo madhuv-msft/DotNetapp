@@ -10,7 +10,7 @@ variables:
   AzureWebAppName: 'ch-environment-test1'
   EnvironmentPreName: 'ProdEnvironment'
   EnvironmentNamePostFix: 'DotNetApp'
-  EnvironmentK8Resource: 'Hosted VS2017'
+  EnvironmentK8Resource: 'Default'
 
 stages:
 - stage: 'Build'
