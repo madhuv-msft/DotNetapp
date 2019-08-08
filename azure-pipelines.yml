@@ -10,7 +10,7 @@ variables:
   AzureWebAppName: 'ch-environment-test1'
   EnvironmentPreName: 'ProdEnvironment'
   EnvironmentNamePostFix: 'DotNetApp'
-  EnvironmentK8Resource: 'default'
+  EnvironmentK8Resource: 'Hosted VS2017'
 
 stages:
 - stage: 'Build'
@@ -18,7 +18,7 @@ stages:
   jobs:
   - job: 'BuildJob'
     pool:
-      name: Default
+      name: Hosted VS2017
       demands:
       - msbuild
       - visualstudio    
@@ -58,7 +58,7 @@ stages:
   - deployment: 'DeploymentJob'
     environment: $(EnvironmentPreName)-$(EnvironmentNamePostFix).$(EnvironmentK8Resource)
     pool:
-      name: Default
+      name: Hosted VS2017
     strategy:
       runOnce:
         deploy:
@@ -86,6 +86,6 @@ stages:
             displayName: 'kubectl get'
             inputs:
               connectionType: 'Kubernetes Service Connection'              
-              namespace: 'default'
+              namespace: 'Hosted VS2017'
               command: get
               arguments: pods
