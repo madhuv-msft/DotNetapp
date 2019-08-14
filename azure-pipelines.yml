@@ -5,7 +5,7 @@ variables:
   AzureEndPointConnection: 'DotNetWebappSPN'
   AzureResourceGroupName: 'ch-environment-test1-rg'
   AzureWebAppName: 'ch-environment-test1'
-  EnvironmentPreName: 'Madhuv-ProdEnvironment'
+  EnvironmentPreName: 'ProdEnvironment'
   EnvironmentNamePostFix: 'DotNetApp'
   EnvironmentK8Resource: 'Default'
 
