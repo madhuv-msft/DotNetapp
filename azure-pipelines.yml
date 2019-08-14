@@ -86,6 +86,5 @@ stages:
             displayName: 'kubectl get'
             inputs:
               connectionType: 'Kubernetes Service Connection'              
-              namespace: 'Hosted VS2017'
               command: get
-              arguments: pods
+              arguments: namespaces
