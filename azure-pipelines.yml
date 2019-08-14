@@ -1,6 +1,3 @@
-trigger:
-- master
-
 variables:
   BuildConfiguration: 'release'
   BuildPlatform: 'any cpu'
@@ -8,7 +5,7 @@ variables:
   AzureEndPointConnection: 'DotNetWebappSPN'
   AzureResourceGroupName: 'ch-environment-test1-rg'
   AzureWebAppName: 'ch-environment-test1'
-  EnvironmentPreName: 'ProdEnvironment'
+  EnvironmentPreName: 'Madhuv-ProdEnvironment'
   EnvironmentNamePostFix: 'DotNetApp'
   EnvironmentK8Resource: 'Default'
 
@@ -85,6 +82,6 @@ stages:
           - task: Kubernetes@1
             displayName: 'kubectl get'
             inputs:
-              connectionType: 'Kubernetes Service Connection'              
+              connectionType: 'Kubernetes Service Connection'
               command: get
               arguments: namespaces
